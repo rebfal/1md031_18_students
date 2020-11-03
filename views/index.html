@@ -2,8 +2,123 @@
 <html lang="en">
     <head>
         <title>DELI-VERY</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Turret+Road&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Raleway:wght@200&display=swap" rel="stylesheet">
+
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <header>
+            <h1>Welcome to BurgerHeaven Online</h1>
+        </header>
+        <main>
+            <h2>Select Burger</h2>
+            <p>Select burger here:</p>
+
+
+            <div class="row">
+                
+                <div class="column">
+                    <h3>Classic Burger</h3>
+                        <img src="/img/burger1.jpg" alt= "Burger 1" width="200">
+                        <p>Our most poular Classic Burger will not dispoint you! The burger is made of pease and is served with our Special Original Sauce™ and vegan cheddar</p>
+                        <ul>
+                            <li>Vegan</li>
+                            <li>Contains cellery</li>
+                            <li>Can be made gluten free</li>
+                        </ul>
+                </div>
+
+
+                <div class="column">
+                    <h3>Spicy Fried Burger</h3>
+                    <img src="/img/burger2.jpg" alt= "Burger 2" width="200">
+                    <p>Fried seitan burger served with tartar sause, rocket and spinnage. We guarantee your satisfaction!</p>
+                    <ul>
+                        <li>Vegan</li>
+                        <li>Can be made gluten free</li>
+
+                    </ul>
+                </div>
+
+                <div class="column">
+                    <h3>BBQ Burger</h3>
+                    <img src="/img/burger3.jpg" alt= "Burger 2" width="200">
+                    <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
+                    <ul>
+                        <li>Vegan</li>
+                        <li>Can be made gluten free</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h2>Customer information</h2>
+                <p>Fill in your personal information</p>
+                <form>
+                    <p>
+                        <label for="fullname">Full name</label><br>
+                        <input type="text" id="fullname" name="name" required="required" placeholder="Insert first and last name">
+                    </p>
+                        
+                    <p>
+                        <label for="email">Last</label><br>
+                        <input type="email" id="email" name="em" required="required" placeholder="Email adress">
+                    </p>
+
+                    <p>
+                        <label for="adress">Adress</label><br>
+                        <input type="text" id="adress" name="adress" required="required" placeholder="Your street">
+                    </p>
+
+                    <p>
+                        <label for="house">House number</label><br>
+                        <input type="number" id="house" name="house" required="required" placeholder="House number">
+                    </p>
+
+                    <p>
+                        <label for="payment">Payment method</label><br>
+                        <select id="payment" name="pay">
+                            <option selected="selected">Debit card</option>
+                            <option>Bank transakcion</option>
+                            <option>Upon delivery</option>
+                            <option>Klarna</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="gender">Gender:</label><br>
+
+                        <input type="radio" id="noinfo" name="gender" value="noinfo" checked="checked">
+                        <label for="noinfo">Wish not to answer</label><br>
+
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>    
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Send">
+                        <button type="submit"><img src="img/send_button.png">
+                    </p>
+                </form>
+            </div>
+            
+
+
+        </main>
+
+        <footer>
+            <hr>
+                <p>
+                    © Copyrigth Rebecca Fällström 2020
+                </p>
+        </footer>
     </body>
 </html>
