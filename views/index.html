@@ -6,26 +6,23 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Turret+Road&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Raleway:wght@200&display=swap" rel="stylesheet">
-
+        
+        <script type="module" src="js/js_script.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js" defer></script>
+        <script type="module" src= "js/vue_script.js" defer></script>
     </head>
     <body>
 
-        
-        
-        
-        
+
         <div class="wrapper">
             <div class="box main_a">
                 <header>
                     <img src="/img/restaurant.png" alt= "Restaurant" class="fadeImage">
                     <h1 class="mainname">Welcome to BurgerHeaven Online</h1>
-        
                 </header>
             </div>
 
             <main>
-            
-      
             <div class="box main_b">
                 <h2>Select Burger</h2>
                 <p>Select burger here:</p>
@@ -55,6 +52,20 @@
                                 <li>Can be made gluten free</li>
                             </ul>
                         </div>
+
+                        <div class="box order">
+                            <p>
+                                <label for="burger1">Antal av burgare 1:   </label>
+                                <select v-model="burger1" id="burger1" name="burger1">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
+                        </div>
                 
                     </div>
 
@@ -75,6 +86,20 @@
                                 <li>Vegan</li>
                                 <li>Can be made gluten free</li>
                             </ul>
+                        </div>
+
+                        <div class="box order">
+                            <p>
+                                <label for="burger2">Antal av burgare 2:   </label>
+                                <select v-model="burger2" id="burger2" name="burger2">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
                         </div>
 
                     </div>
@@ -98,48 +123,192 @@
                             </ul>
                         </div>
 
+                        <div class="box order">
+                            <p>
+                                <label for="burger3">Antal av burgare 3:  </label>
+                                <select v-model="burger3" id="burger3" name="burger3">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- BURGARE 4 -->
+                    <div class="box burger d" >
+                        <div class="box header"><h3>Spicy Fried Burger</h3></div>
+                        
+                        <div class="box picture">
+                            <img src="/img/burger2.png" alt= "Burger 2" width="300" class="burgare">
+                        </div>
+
+                        <div class="box description">
+                            <p>Fried seitan burger served with tartar sause, rocket and spinnage. We guarantee your satisfaction!</p>
+                        </div>
+
+                        <div class="box allergy">
+                            <ul>
+                                <li>Vegan</li>
+                                <li>Can be made gluten free</li>
+                            </ul>
+                        </div>
+
+                        <div class="box order">
+                            <p>
+                                <label for="burger4">Antal av burgare 4:  </label>
+                                <select v-model="burger4" id="burger4" name="burger4">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- BURGARE 5 -->
+                    <div class="box burger e" >
+                        <div class="box header"><h3>BBQ Burger</h3></div>
+                        
+                        <div class="box picture">
+                            <img src="/img/burger3.png" alt= "Burger 2" width="300" class="burgare">
+                        </div>
+
+                        <div class="box description">
+                            <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
+                        </div>
+
+                        <div class="box allergy">
+                            <ul>
+                                <li>Vegan</li>
+                                <li>Can be made gluten free</li>
+                            </ul>
+                        </div>
+
+                        <div class="box order">
+                            <p>
+                                <label for="burger5">Antal av burgare 5:  </label>
+                                <select v-model="burger5" id="burger5" name="burger5">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
+                        </div>
+
+
+                    </div>
+
+                    <!-- BURGARE 6 -->
+                    <div class="box burger f" >
+                        <div class="box header"><h3>BBQ Burger</h3></div>
+                        
+                        <div class="box picture">
+                            <img src="/img/burger3.png" alt= "Burger 2" width="300" class="burgare">
+                        </div>
+
+                        <div class="box description">
+                            <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
+                        </div>
+
+                        <div class="box allergy">
+                            <ul>
+                                <li>Vegan</li>
+                                <li>Can be made gluten free</li>
+                            </ul>
+                        </div>
+
+                        <div class="box order">
+                            <p>
+                                <label for="burger6">Antal av burgare 6:  </label>
+                                <select v-model="burger6" id="burger5" name="burger6">
+                                    <option selected="selected">0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </p>
+                        </div>
+
                     </div>
                 
               </div>
 
             </div>
 
-
-
-
-
-
-
-
+            <div class="box">
+                <div id="my-app">
+                    <h2>Select burger</h2>
+                    <p>
+                      This is where you execute burger selection
+                    </p>
+                    <div class="all_burgers">
+                    <div class="item" v-for="item in items">
+                      <h3 class="box header">{{item.name}}</h3>
+                      <img v-bind:src="item.imgURL" class="box picture">
+                      <ul class="box allergy">
+                        <li>{{item.kcal}} kCal</li>
+                        <li v-if="item.gluten">Contains gluten</li>
+                        <li v-if="item.lactose">Contains lactose</li>
+                      </ul>
+                      <p class="description">{{item.description}}</p>
+                    </div>
+                    </div>
+                  </div>
+            </div>
             
             <div class="box main_d">
                 <div class="contact">
                     <h2>Customer information</h2>
                     <p>Fill in your personal information</p>
                     <form>
+                        
+                        <!-- Namn -->
                         <p>
                             <label for="fullname">Full name</label><br>
-                            <input type="text" id="fullname" name="name" required="required" placeholder="Insert first and last name">
+                            <input v-model="name" type="text" id="fullname" name="name" required="required" >
                         </p>
-                            
+                        
+                        
+                        <!-- Email -->
                         <p>
                             <label for="email">Last</label><br>
-                            <input type="email" id="email" name="em" required="required" placeholder="Email adress">
+                            <input v-model="email" type="email" id="email" name="em" required="required" >
                         </p>
     
+                        
+                        <!-- Adress -->
                         <p>
                             <label for="adress">Adress</label><br>
-                            <input type="text" id="adress" name="adress" required="required" placeholder="Your street">
+                            <input v-model="adress" type="text" id="adress" name="adress" required="required">
                         </p>
     
+                        
+                        <!-- Gatunummer -->
                         <p>
                             <label for="house">House number</label><br>
-                            <input type="number" id="house" name="house" required="required" placeholder="House number">
+                            <input v-model="strnumber" type="number" id="house" name="house" required="required">
                         </p>
     
+                        
+                        <!-- Betalmetod -->
                         <p>
                             <label for="payment">Payment method</label><br>
-                            <select id="payment" name="pay">
+                            <select v-model="payment" id="payment" name="pay">
                                 <option selected="selected">Debit card</option>
                                 <option>Bank transakcion</option>
                                 <option>Upon delivery</option>
@@ -147,25 +316,38 @@
                             </select>
                         </p>
     
+                        
+                        <!-- Kön -->
                         <p>
                             <label for="gender">Gender:</label><br>
     
-                            <input type="radio" id="noinfo" name="gender" value="noinfo" checked="checked">
+                            <input v-model="genderPicked" type="radio" id="noinfo" name="gender" value="noinfo" checked="checked">
                             <label for="noinfo">Wish not to answer</label><br>
     
-                            <input type="radio" id="male" name="gender" value="male">
+                            <input v-model="genderPicked" type="radio" id="male" name="gender" value="male">
                             <label for="male">Male</label><br>
     
-                            <input type="radio" id="female" name="gender" value="female">
+                            <input v-model="genderPicked" type="radio" id="female" name="gender" value="female">
                             <label for="female">Female</label><br>
     
-                            <input type="radio" id="other" name="gender" value="other">
+                            <input v-model="genderPicked" type="radio" id="other" name="gender" value="other">
                             <label for="other">Other</label>    
                         </p>
-    
+
+                        <!-- Kommentar -->
                         <p>
-                            <button type="submit" value="Send">Send  <img src="img/check.png" width=20px height="20px">
+                            <label for="comment ">Anything you want us to know?</label><br>
+                            <input v-model="comment" type="text" id="comment" name="comment">
                         </p>
+    
+                        
+                        <!-- Beställningsknapp -->
+                        <p>
+                            <button id= "orderButton" type="submit" value="Send" v-onclick="addOrder()" >Send<img src="img/check.png" width=20px height="20px">
+                        </p>
+
+                        
+
                     </form>
                 </div>
             </div>
@@ -175,7 +357,7 @@
                 <footer>
                     <hr>
                         <p>
-                            © Copyrigth Rebecca Fällström 2020
+                               © Copyrigth Rebecca Fällström 2020
                         </p>
                 </footer>
             </div>
