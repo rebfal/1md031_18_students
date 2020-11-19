@@ -1,6 +1,4 @@
 
-
-
 export function MenuItem(name, imgURL, kCal, gluten, lactose, description) {
     this.name = name;
     this.img = imgURL;
@@ -11,11 +9,12 @@ export function MenuItem(name, imgURL, kCal, gluten, lactose, description) {
 
     this.gluten = gluten;
     this.lactose = lactose;
-    this.description =description;
+    this.description = description;
     console.log(this.description) 
-    
 
 }
+
+
 
 
 

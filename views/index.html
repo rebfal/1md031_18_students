@@ -10,268 +10,50 @@
         <script type="module" src="js/js_script.js" defer></script>
         <script src="https://vuejs.org/js/vue.js" defer></script>
         <script type="module" src= "js/vue_script.js" defer></script>
+        
     </head>
     <body>
 
 
         <div class="wrapper">
-            <div class="box main_a">
+            <div class="box">
                 <header>
                     <img src="/img/restaurant.png" alt= "Restaurant" class="fadeImage">
                     <h1 class="mainname">Welcome to BurgerHeaven Online</h1>
                 </header>
             </div>
 
-            <main>
-            <div class="box main_b">
-                <h2>Select Burger</h2>
-                <p>Select burger here:</p>
-            </div>
+            <main id="main">
+                <div class="box">
+                    <!-- Här kommer alla burgare från menu.js -->
+                    <div id="my-app">
+                        <h2>Select burger</h2>
+                        <p>
+                        This is where you execute burger selection
+                        </p>
+                        <div class="all_burgers">
+                        <div class="item" v-for="item in items">
+                        <h3 class="box header">{{item.name}}</h3>
+                        <img v-bind:src="item.img" class="box picture">
+                        <ul class="box allergy">
+                            <li>{{item.kCal}} kCal</li>
+                            <li v-if="item.gluten">Contains gluten</li>
+                            <li v-if="item.lactose">Contains lactose</li>
+                        </ul>
+                        <p class="description">{{item.description}}</p>
 
-            <div class="box main_c">
-                
-                <!-- ALLA BURGARE -->
-                <div class="all_burgers">
+                        <div>
+                            <input type="checkbox" id="burgerOK" name="checkbox" value="burgerCheck">
+                            <label for="burgerCheck"> Order {{ item.name }} </label><br>
+                        </div>
 
-                    <!-- BURGARE 1 -->
-                    <div class="box burger a" >
-                        <div class="box header"><h3>Classic Burger</h3></div>
+                        </div>
                         
-                        <div class="box picture">
-                            <img src="/img/burger1.png" alt= "Burger 1" width="300" class="burgare">
                         </div>
-                
-                        <div class="box description">
-                            <p>Our most poular Classic Burger will not dispoint you! The burger is made of pease and is served with our Special Original Sauce™ and vegan cheddar</p>
-                        </div>
-                
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Contains cellery</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger1">Antal av burgare 1:   </label>
-                                <select v-model="burger1" id="burger1" name="burger1">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-                
                     </div>
-
-                    <!-- BURGARE 2 -->
-                    <div class="box burger b" >
-                        <div class="box header"><h3>Spicy Fried Burger</h3></div>
-                        
-                        <div class="box picture">
-                            <img src="/img/burger2.png" alt= "Burger 2" width="300" class="burgare">
-                        </div>
-
-                        <div class="box description">
-                            <p>Fried seitan burger served with tartar sause, rocket and spinnage. We guarantee your satisfaction!</p>
-                        </div>
-
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger2">Antal av burgare 2:   </label>
-                                <select v-model="burger2" id="burger2" name="burger2">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <!-- BURGARE 3 -->
-                    <div class="box burger c" >
-                        <div class="box header"><h3>BBQ Burger</h3></div>
-                        
-                        <div class="box picture">
-                            <img src="/img/burger3.png" alt= "Burger 2" width="300" class="burgare">
-                        </div>
-
-                        <div class="box description">
-                            <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
-                        </div>
-
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger3">Antal av burgare 3:  </label>
-                                <select v-model="burger3" id="burger3" name="burger3">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <!-- BURGARE 4 -->
-                    <div class="box burger d" >
-                        <div class="box header"><h3>Spicy Fried Burger</h3></div>
-                        
-                        <div class="box picture">
-                            <img src="/img/burger2.png" alt= "Burger 2" width="300" class="burgare">
-                        </div>
-
-                        <div class="box description">
-                            <p>Fried seitan burger served with tartar sause, rocket and spinnage. We guarantee your satisfaction!</p>
-                        </div>
-
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger4">Antal av burgare 4:  </label>
-                                <select v-model="burger4" id="burger4" name="burger4">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <!-- BURGARE 5 -->
-                    <div class="box burger e" >
-                        <div class="box header"><h3>BBQ Burger</h3></div>
-                        
-                        <div class="box picture">
-                            <img src="/img/burger3.png" alt= "Burger 2" width="300" class="burgare">
-                        </div>
-
-                        <div class="box description">
-                            <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
-                        </div>
-
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger5">Antal av burgare 5:  </label>
-                                <select v-model="burger5" id="burger5" name="burger5">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-
-
-                    </div>
-
-                    <!-- BURGARE 6 -->
-                    <div class="box burger f" >
-                        <div class="box header"><h3>BBQ Burger</h3></div>
-                        
-                        <div class="box picture">
-                            <img src="/img/burger3.png" alt= "Burger 2" width="300" class="burgare">
-                        </div>
-
-                        <div class="box description">
-                            <p>Try our newest burger to the menue: BBQ Burger! This Burger is served in a soft brioche bun with mayineise, hot sause and pickled carrots.</p>
-                        </div>
-
-                        <div class="box allergy">
-                            <ul>
-                                <li>Vegan</li>
-                                <li>Can be made gluten free</li>
-                            </ul>
-                        </div>
-
-                        <div class="box order">
-                            <p>
-                                <label for="burger6">Antal av burgare 6:  </label>
-                                <select v-model="burger6" id="burger5" name="burger6">
-                                    <option selected="selected">0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </p>
-                        </div>
-
-                    </div>
-                
-              </div>
-
-            </div>
-
-            <div class="box">
-                <div id="my-app">
-                    <h2>Select burger</h2>
-                    <p>
-                      This is where you execute burger selection
-                    </p>
-                    <div class="all_burgers">
-                    <div class="item" v-for="item in items">
-                      <h3 class="box header">{{item.name}}</h3>
-                      <img v-bind:src="item.imgURL" class="box picture">
-                      <ul class="box allergy">
-                        <li>{{item.kcal}} kCal</li>
-                        <li v-if="item.gluten">Contains gluten</li>
-                        <li v-if="item.lactose">Contains lactose</li>
-                      </ul>
-                      <p class="description">{{item.description}}</p>
-                    </div>
-                    </div>
-                  </div>
-            </div>
+                </div>
             
-            <div class="box main_d">
+            <div class="box">
                 <div class="contact">
                     <h2>Customer information</h2>
                     <p>Fill in your personal information</p>
@@ -334,7 +116,7 @@
                             <label for="other">Other</label>    
                         </p>
 
-                        <!-- Kommentar -->
+                        <!-- Kommentar, eventuellt ta bort då den just nu inte används -->
                         <p>
                             <label for="comment ">Anything you want us to know?</label><br>
                             <input v-model="comment" type="text" id="comment" name="comment">
@@ -343,8 +125,27 @@
                         
                         <!-- Beställningsknapp -->
                         <p>
-                            <button id= "orderButton" type="submit" value="Send" v-onclick="addOrder()" >Send<img src="img/check.png" width=20px height="20px">
+                            <button v-on:click= "buttonClicked()" id= "myButtonID" type="submit" value="Send">Submit<img src="img/check.png" width=20px height="20px">   
                         </p>
+
+
+                        <!-- Visar order om beställning är lagd -->
+                        <div v-if="click">
+                            <h2>Confirmation of order</h2>
+                            <ul>
+                                <li>Name: {{ customerArray[0] }} </li>
+                                <li>Email: {{ customerArray[1] }} </li>
+                                <li>Adress: {{ customerArray[2] }} {{ customerArray[2] }}</li>
+                                <li>Payment: {{ customerArray[4] }} </li>
+                                <li>Gender: {{ customerArray[5] }} </li>
+                                <li>Order: {{ "Burgers selected: " + checkesBurger }} </li>
+                            </ul>
+
+                        </div>
+
+
+
+
 
                         
 
@@ -353,7 +154,7 @@
             </div>
 
         </main>
-            <div class="box main_d">
+            <div class="box">
                 <footer>
                     <hr>
                         <p>
