@@ -2,14 +2,24 @@
 <html lang="en">
     <head>
         <title>DELI-VERY</title>
+        
+        <!-- CSS -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="css/deli-very.css">
 
+        <!-- Typsnitt -->
         <link href="https://fonts.googleapis.com/css2?family=Turret+Road&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Raleway:wght@200&display=swap" rel="stylesheet">
         
+        <!-- För message -->
+        <script src="/socket.io/socket.io.js" defer></script>
+
+        <!-- Andra JS/VUE -->
         <script type="module" src="js/js_script.js" defer></script>
         <script src="https://vuejs.org/js/vue.js" defer></script>
         <script type="module" src= "js/vue_script.js" defer></script>
+        <script src="/vue/vue.js" defer></script>
         
     </head>
     <body>
@@ -62,35 +72,35 @@
                         <!-- Namn -->
                         <p>
                             <label for="fullname">Full name</label><br>
-                            <input v-model="name" type="text" id="fullname" name="name" required="required" >
+                            <input type="text" id="fullname" name="name" required="required" placeholder="First and last name" >
                         </p>
                         
                         
                         <!-- Email -->
                         <p>
                             <label for="email">Last</label><br>
-                            <input v-model="email" type="email" id="email" name="em" required="required" >
+                            <input type="email" id="email" name="em" required="required" placeholder="example@email.com">
                         </p>
     
                         
                         <!-- Adress -->
                         <p>
                             <label for="adress">Adress</label><br>
-                            <input v-model="adress" type="text" id="adress" name="adress" required="required">
+                            <input type="text" id="adress" name="adress" required="required" placeholder="Street name">
                         </p>
     
                         
                         <!-- Gatunummer -->
                         <p>
                             <label for="house">House number</label><br>
-                            <input v-model="strnumber" type="number" id="house" name="house" required="required">
+                            <input type="number" id="house" name="house" required="required" placeholder="House nr">
                         </p>
     
                         
                         <!-- Betalmetod -->
                         <p>
                             <label for="payment">Payment method</label><br>
-                            <select v-model="payment" id="payment" name="pay">
+                            <select id="payment" name="pay">
                                 <option selected="selected">Debit card</option>
                                 <option>Bank transakcion</option>
                                 <option>Upon delivery</option>
@@ -103,25 +113,43 @@
                         <p>
                             <label for="gender">Gender:</label><br>
     
-                            <input v-model="genderPicked" type="radio" id="noinfo" name="gender" value="noinfo" checked="checked">
+                            <input type="radio" id="noinfo" name="gender" value="noinfo" checked="checked">
                             <label for="noinfo">Wish not to answer</label><br>
     
-                            <input v-model="genderPicked" type="radio" id="male" name="gender" value="male">
+                            <input type="radio" id="male" name="gender" value="male">
                             <label for="male">Male</label><br>
     
-                            <input v-model="genderPicked" type="radio" id="female" name="gender" value="female">
+                            <input type="radio" id="female" name="gender" value="female">
                             <label for="female">Female</label><br>
     
-                            <input v-model="genderPicked" type="radio" id="other" name="gender" value="other">
+                            <input type="radio" id="other" name="gender" value="other">
                             <label for="other">Other</label>    
                         </p>
 
-                        <!-- Kommentar, eventuellt ta bort då den just nu inte används -->
+
+                        <!-- Kommentar, eventuellt ta bort då den just nu inte används 
                         <p>
                             <label for="comment ">Anything you want us to know?</label><br>
                             <input v-model="comment" type="text" id="comment" name="comment">
                         </p>
-    
+                        -->
+                        
+
+
+
+                        <!-- Karta (ersätter manuell adress sen) -->
+                        <h3>Your position</h3>
+                        <div class="view-box">
+                            <div id="dots" v-on:click="addOrder">
+                                <div 
+                                  v-for="(order, key) in orders"
+                                  v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                  {{key}}
+                                </div>
+                            </div>
+                          </div>
+
+
                         
                         <!-- Beställningsknapp -->
                         <p>
@@ -129,8 +157,8 @@
                         </p>
 
 
-                        <!-- Visar order om beställning är lagd -->
-                        <div v-if="click">
+                        <!-- Visar order om beställning är lagd ::: <div v-if="click">-->
+                        <div >
                             <h2>Confirmation of order</h2>
                             <ul>
                                 <li>Name: {{ customerArray[0] }} </li>
@@ -138,7 +166,7 @@
                                 <li>Adress: {{ customerArray[2] }} {{ customerArray[2] }}</li>
                                 <li>Payment: {{ customerArray[4] }} </li>
                                 <li>Gender: {{ customerArray[5] }} </li>
-                                <li>Order: {{ "Burgers selected: " + checkesBurger }} </li>
+                                <li>Order: {{ "Burgers selected: " + checkedBurgers }} </li>
                             </ul>
 
                         </div>

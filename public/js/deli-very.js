@@ -9,6 +9,8 @@ var vm = new Vue({
   data: {
     orders: {},
   },
+
+  // SKAPA SOCKET
   created: function () {
     socket.on('initialize', function (data) {
       this.orders = data.orders;
@@ -18,6 +20,8 @@ var vm = new Vue({
       this.orders = data.orders;
     }.bind(this));
   },
+
+  // METODER
   methods: {
     getNext: function () {
       var lastOrder = Object.keys(this.orders).reduce(function (last, next) {

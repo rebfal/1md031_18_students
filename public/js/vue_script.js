@@ -2,7 +2,6 @@
 import { MenuItem } from './js_script.js'
 import { menu } from './menu.js'
 
-
 //var button = document.getElementById("orderButton");
 //button.addEventListener("click", orderDone());
 
@@ -31,7 +30,8 @@ function getCustomerInformation () {
       }
     }
   var customerArray = [fullname, email, payment, gender];
-  return curtomerArray;
+  console.log(customerArray)
+  return customerArray;
     
 }
 
@@ -42,16 +42,17 @@ function getCustomerInformation () {
 function getBurgerInformation() {
   var burgerArray = document.getElementsByName("checkbox");
   var selectedBurgers =[];
-  for (i=0; i < burgerArray.length; i++) {
+  for (var i, i=0; i < burgerArray.length; i++) {
     if (burgerArray[i].checked) {
       selectedBurgers.push(burgerArray[i].value);
     }
   }
+  console.log(selectedBurgers)
   return selectedBurgers;
 }
 
-
-
+'use strict';
+var socket = io();
 
 var vm = new Vue({
 el: "#main",
@@ -59,28 +60,57 @@ data: {
 items: menu,
 customerArray: [],
 checkedBurgers: [], 
-//click = false,
-
+//click, //= false,
+orders: {},
 
 },
 
 
+// SKAPA SOCKET
+created: function () {
+  socket.on('initialize', function (data) {
+    this.orders = data.orders;
+  }.bind(this));
+
+  socket.on('currentQueue', function (data) {
+    this.orders = data.orders;
+  }.bind(this));
+},
+
 methods:{
   
   buttonClicked: function () {
-    this.click = true;
-    this.customerArray = getCustomerInforamtion();
+    //this.click = true;
+    this.customerArray = getCustomerInformation();
     this.checkedBurger = getBurgerInformation();
     this.addOrder();
   },
 
   
-  addOrder: function(event){
-    console.log("Detta är addOrder")
+  getNext: function () {
+    var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
+      return Math.max(last, next);
+    }, 0);
+    return lastOrder + 1;
+  },
+
+
+  
+  addOrder: function (event) {
+    var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                  y: event.currentTarget.getBoundingClientRect().top};
+    socket.emit("addOrder", { orderId: this.getNext(),
+                              details: { x: event.clientX - 10 - offset.x,
+                                         y: event.clientY - 10 - offset.y },
+                              orderItems: ["Beans", "Curry"]
+                            });
   },
 
   displayOrder: function(event) {
     console.log("Detta är displayOrder")
+    console.log(event)
+
+
   }
 
   

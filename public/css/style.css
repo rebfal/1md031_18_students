@@ -59,10 +59,8 @@ button:hover {
     text-shadow: 1px 0px darkgray;
 }
 
-#my-app {
-    
-    
-}
+
+
 
 .contact {
     width: 100%;
@@ -162,48 +160,13 @@ img { width: 85%; }
 }
 .allergy {
     grid-row: 4 ;
+    font-weight: 900;
 }
 
 .order {
     grid-row: 5;
 }
- 
 
-.a {
-    grid-row: 1;
-    grid-column: 1;
-}
-
-.b {
-    grid-row: 1;
-    grid-column: 2;
-    
-}
-
-.c {
-    grid-row: 1;
-    grid-column: 3;
-}
-
-.d {
-    grid-row: 2;
-    grid-column: 1;
-}
-
-.e {
-    grid-row: 2;
-    grid-column: 2;
-    
-}
-
-.f {
-    grid-row: 2;
-    grid-column: 3;
-}
-
-.allergy {
-    font-weight: 900;
-}
 
 .headerpic {
     opacity: 0.7;
@@ -271,26 +234,7 @@ img { width: 85%; }
         font-size: 1rem;
     }
 
-/* a och b samma! */    
-    .c {
-        grid-row: 2;
-        grid-column: 1;
-    }
 
-    .d {
-        grid-row: 2;
-        grid-column: 2;
-    }
-
-    .e {
-        grid-row: 3;
-        grid-column: 1;
-    }
-
-    .f {
-        grid-row: 3;
-        grid-column: 2;
-    }
 
     .all_burgers {
         grid-template-columns: auto auto;
@@ -307,35 +251,7 @@ img { width: 85%; }
         font-size: 1rem;
     }
 
-    .a {
-        grid-row: 1;
-        grid-column: 1;
-    }
-
-    .b {
-        grid-row: 2;
-        grid-column: 1;
-    }
-
-    .c {
-        grid-row: 3;
-        grid-column: 1;
-    }
-
-    .d {
-        grid-row: 4;
-        grid-column: 1;
-    }
-
-    .e {
-        grid-row: 5;
-        grid-column: 1;
-    }
-
-    .f {
-        grid-row: 6;
-        grid-column: 1;
-    }
+    
 
     .all_burgers {
         width: 90%;
