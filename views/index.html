@@ -19,7 +19,7 @@
         <script type="module" src="js/js_script.js" defer></script>
         <script src="https://vuejs.org/js/vue.js" defer></script>
         <script type="module" src= "js/vue_script.js" defer></script>
-        <script src="/vue/vue.js" defer></script>
+       
         
     </head>
     <body>
@@ -78,23 +78,23 @@
                         
                         <!-- Email -->
                         <p>
-                            <label for="email">Last</label><br>
+                            <label for="email">Email</label><br>
                             <input type="email" id="email" name="em" required="required" placeholder="example@email.com">
                         </p>
     
                         
-                        <!-- Adress -->
+                        <!-- Adress 
                         <p>
                             <label for="adress">Adress</label><br>
                             <input type="text" id="adress" name="adress" required="required" placeholder="Street name">
-                        </p>
+                        </p>-->
     
                         
-                        <!-- Gatunummer -->
+                        <!-- Gatunummer
                         <p>
                             <label for="house">House number</label><br>
                             <input type="number" id="house" name="house" required="required" placeholder="House nr">
-                        </p>
+                        </p> -->
     
                         
                         <!-- Betalmetod -->
@@ -153,24 +153,24 @@
 
                     </form>
 
-                    
+
                     <!-- Beställningsknapp -->
                     <p>
-                        <button v-on:click= "buttonClicked" id= "myButtonID" value="Send">Submit<img src="img/check.png" width=20px height="20px"></button>   
+                        <button v-on:click= "buttonClicked" id= "myButtonID" value="Send">Submit</button>   
                     </p>
                     
                    
 
                     <!-- Visar order om beställning är lagd ::: <div v-if="click">-->
-                    <div v-if="buttonIsClicked">
+                    <div v-if="buttonIsClicked" >  
                         <h2>Confirmation of order</h2>
                         <ul>
                             <li>Name: {{ customerArray[0] }} </li>
                             <li>Email: {{ customerArray[1] }} </li>
-                            <li>Adress: {{ customerArray[2] }} {{ customerArray[2] }}</li>
-                            <li>Payment: {{ customerArray[4] }} </li>
-                            <li>Gender: {{ customerArray[5] }} </li>
-                            <li>Order: {{ "Burgers selected: " + checkedBurgers }} </li>
+                             <!--<li>Adress: {{ customerArray[2] }} {{ customerArray[2] }}</li>-->
+                            <li>Payment: {{ customerArray[2] }} </li>
+                            <li>Gender: {{ customerArray[3] }} </li>
+                            <li>Order: {{  checkedBurger.join(", ") }} </li>
                         </ul>
 
                     </div>
