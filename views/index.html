@@ -53,7 +53,7 @@
                         <p class="description">{{item.description}}</p>
 
                         <div>
-                            <input type="checkbox" id="burgerOK" name="checkbox" value="burgerCheck">
+                            <input type="checkbox" id="checkbox" value="burgerCheck">
                             <label for="burgerCheck"> Order {{ item.name }} </label><br>
                         </div>
 
@@ -140,20 +140,21 @@
                         <!-- Karta (ersätter manuell adress sen) -->
                         <h3>Your position</h3>
                         <div class="view-box">
-                            <div id="dots" v-on:click="addOrder">
+
+                            <div id="dots" v-on:click="displayOrder">
                                 <div 
-                                  v-for="(order, key) in orders"
-                                  v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                                  {{key}}
+                                  
+                                  v-bind:style="{ left: details.x + 'px', top: details.y + 'px'}">
+                                  T
                                 </div>
                             </div>
-                          </div>
+                        </div>
 
 
                         
                         <!-- Beställningsknapp -->
                         <p>
-                            <button v-on:click= "buttonClicked()" id= "myButtonID" type="submit" value="Send">Submit<img src="img/check.png" width=20px height="20px">   
+                            <button v-on:click= "buttonClicked" id= "myButtonID" type="submit" value="Send">Submit<img src="img/check.png" width=20px height="20px">   
                         </p>
 
 

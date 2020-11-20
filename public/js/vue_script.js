@@ -2,20 +2,9 @@
 import { MenuItem } from './js_script.js'
 import { menu } from './menu.js'
 
-//var button = document.getElementById("orderButton");
-//button.addEventListener("click", orderDone());
-
-//function orderDone(){
-    //console.log("Your order has been placed :)")
-
-    //var name = document.getElementById('')
-//}
-
-
 
 
 // INFORMATION OM KUND
-
 function getCustomerInformation () {
   var fullname = document.getElementById("fullname").value;
   var email = document.getElementById("email").value;
@@ -38,19 +27,20 @@ function getCustomerInformation () {
 
 
 // INFORMATION OM ORDER
-
 function getBurgerInformation() {
-  var burgerArray = document.getElementsByName("checkbox");
+  var burgerArray = document.getElementsById("checkbox");
   var selectedBurgers =[];
   for (var i, i=0; i < burgerArray.length; i++) {
     if (burgerArray[i].checked) {
-      selectedBurgers.push(burgerArray[i].value);
+      selectedBurgers.push(burgerArray[i].name);
     }
   }
   console.log(selectedBurgers)
   return selectedBurgers;
 }
 
+
+// VUE
 'use strict';
 var socket = io();
 
@@ -60,8 +50,9 @@ data: {
 items: menu,
 customerArray: [],
 checkedBurgers: [], 
-//click, //= false,
+//click = false,
 orders: {},
+details: {x:0, y:0}
 
 },
 
@@ -80,10 +71,16 @@ created: function () {
 methods:{
   
   buttonClicked: function () {
+    console.log("Beställning lagd")
     //this.click = true;
     this.customerArray = getCustomerInformation();
+    console.log(this.customerArray)
+
     this.checkedBurger = getBurgerInformation();
+    console.log(this.checkedBurger)
+
     this.addOrder();
+
   },
 
   
@@ -97,28 +94,26 @@ methods:{
 
   
   addOrder: function (event) {
-    var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                  y: event.currentTarget.getBoundingClientRect().top};
+    console.log("Detta är addOrder")
     socket.emit("addOrder", { orderId: this.getNext(),
-                              details: { x: event.clientX - 10 - offset.x,
-                                         y: event.clientY - 10 - offset.y },
-                              orderItems: ["Beans", "Curry"]
+                              details: this.details,
+                              orderItems: this.checkedBurger,
+                              orderInformation: this.customerArray
                             });
   },
 
   displayOrder: function(event) {
     console.log("Detta är displayOrder")
     console.log(event)
-
-
+    var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                  y: event.currentTarget.getBoundingClientRect().top
+                };
+    this.details = { x: event.clientX - 10 - offset.x,
+                     y: event.clientY - 10 - offset.y
+                                        
+      }
+    }
   }
-
-  
-
-  
-
-}
-
 })
 
 
