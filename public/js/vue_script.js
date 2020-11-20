@@ -50,7 +50,7 @@ data: {
 items: menu,
 customerArray: [],
 checkedBurgers: [], 
-//click = false,
+buttonIsClicked: false,
 orders: {},
 details: {x:0, y:0}
 
@@ -72,7 +72,7 @@ methods:{
   
   buttonClicked: function () {
     console.log("Beställning lagd")
-    //this.click = true;
+    this.buttonIsClicked = true;
     this.customerArray = getCustomerInformation();
     console.log(this.customerArray)
 
@@ -95,7 +95,7 @@ methods:{
   
   addOrder: function (event) {
     console.log("Detta är addOrder")
-    socket.emit("addOrder", { orderId: this.getNext(),
+    socket.emit("addOrder", { orderId: Math.floor(Math.random() * 100), //this.getNext(),
                               details: this.details,
                               orderItems: this.checkedBurger,
                               orderInformation: this.customerArray
