@@ -28,11 +28,11 @@ function getCustomerInformation () {
 
 // INFORMATION OM ORDER
 function getBurgerInformation() {
-  var burgerArray = document.getElementsById("checkbox");
+  var burgerArray = document.getElementsByName("checkbox");
   var selectedBurgers =[];
   for (var i, i=0; i < burgerArray.length; i++) {
     if (burgerArray[i].checked) {
-      selectedBurgers.push(burgerArray[i].name);
+      selectedBurgers.push(burgerArray[i].value);
     }
   }
   console.log(selectedBurgers)

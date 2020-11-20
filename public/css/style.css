@@ -234,15 +234,13 @@ img { width: 85%; }
         font-size: 1rem;
     }
 
-
-
     .all_burgers {
         grid-template-columns: auto auto;
     }
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     h1 {
         font-size: 6vw;
     }
@@ -252,6 +250,9 @@ img { width: 85%; }
     }
 
     
+    .all_burgers {
+        grid-template-columns: auto;
+    }
 
     .all_burgers {
         width: 90%;
